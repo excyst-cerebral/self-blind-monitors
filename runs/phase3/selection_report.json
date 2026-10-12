@@ -1,0 +1,102 @@
+{
+  "cutoff": 2,
+  "selection": {
+    "qwen_1": {
+      "train_calib": 0.6158166363084395,
+      "n_train_calib": 27,
+      "calib": 0.63,
+      "n_calib": 4
+    },
+    "qwen_2": {
+      "train_calib": 0.6062537947783849,
+      "n_train_calib": 99,
+      "calib": 0.6114285714285714,
+      "n_calib": 21
+    },
+    "qwen_3": {
+      "train_calib": 0.6261593222038403,
+      "n_train_calib": 109,
+      "calib": 0.6092753623188406,
+      "n_calib": 23
+    },
+    "qwen_4": {
+      "train_calib": 0.6495509076063061,
+      "n_train_calib": 174,
+      "calib": 0.617979797979798,
+      "n_calib": 33
+    },
+    "granite_1": {
+      "train_calib": 0.5177595628415301,
+      "n_train_calib": 39,
+      "calib": 0.3583333333333334,
+      "n_calib": 8
+    },
+    "granite_2": {
+      "train_calib": 0.5034977388355003,
+      "n_train_calib": 116,
+      "calib": 0.48939393939393944,
+      "n_calib": 22
+    },
+    "granite_3": {
+      "train_calib": 0.5141707867117703,
+      "n_train_calib": 126,
+      "calib": 0.4991304347826088,
+      "n_calib": 23
+    },
+    "granite_4": {
+      "train_calib": 0.587847811067144,
+      "n_train_calib": 174,
+      "calib": 0.5664646464646464,
+      "n_calib": 33
+    },
+    "deepseek_1": {
+      "train_calib": 0.6500455373406192,
+      "n_train_calib": 12,
+      "calib": 0.53,
+      "n_calib": 4
+    },
+    "deepseek_2": {
+      "train_calib": 0.6953125,
+      "n_train_calib": 32,
+      "calib": 0.5161904761904762,
+      "n_calib": 7
+    },
+    "deepseek_3": {
+      "train_calib": 0.7102709936433591,
+      "n_train_calib": 49,
+      "calib": 0.6266666666666666,
+      "n_calib": 12
+    },
+    "deepseek_4": {
+      "train_calib": 0.6932419740437159,
+      "n_train_calib": 128,
+      "calib": 0.6126436781609196,
+      "n_calib": 29
+    }
+  },
+  "chosen": {
+    "editor": "granite",
+    "cutoff": 2,
+    "eligible": {
+      "qwen": 0.6062537947783849,
+      "granite": 0.5034977388355003,
+      "deepseek": 0.6953125
+    }
+  },
+  "test_selected": {
+    "per_seed": {
+      "adaptive_min": 0.47640156453715776,
+      "adaptive_min_s1": 0.5610169491525424,
+      "adaptive_min_s2": 0.4933507170795306
+    },
+    "pooled": 0.5102564102564103,
+    "pooled_ci90": [
+      0.4273294219904389,
+      0.5922772707518471
+    ],
+    "pooled_ci95": [
+      0.41152107779226427,
+      0.6052390265102129
+    ]
+  }
+}

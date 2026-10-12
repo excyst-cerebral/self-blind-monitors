@@ -1,0 +1,53 @@
+% Shared palette and plot styles. Colour encodes a role; seeds are told apart by marker shape, never by hue.
+%   crimson = red team (colluder, its own attacks)   blue = blue team (honest monitor, defences)
+%   teal / amber / violet = honeypot editors Granite / Qwen / DeepSeek   grey = ordinary honeypots (other models' code)
+% The five hues pass the dataviz palette check (lightness band, chroma floor, CVD and normal-vision separation);
+% amber sits just under 3:1 contrast on white, so every amber mark is also labelled directly and has its own shape.
+\usepackage[scaled=.92]{helvet}
+\usepackage{tikz}
+\usepackage{pgfplots}\pgfplotsset{compat=1.17}
+\usetikzlibrary{arrows.meta,positioning,fit,backgrounds,calc,shapes.geometric,decorations.pathreplacing,patterns,matrix}
+\usepgfplotslibrary{fillbetween,groupplots}
+
+\definecolor{cRed}{HTML}{C23B3B}
+\definecolor{cBlue}{HTML}{2A78D6}
+\definecolor{cTeal}{HTML}{00906F}
+\definecolor{cAmber}{HTML}{C98500}
+\definecolor{cViolet}{HTML}{6A4C9C}
+\definecolor{cGrey}{HTML}{6D6D6D}
+\definecolor{cInk}{HTML}{222222}
+
+\pgfplotsset{paper/.style={
+  width=\linewidth, height=5.6cm,
+  tick label style={font=\footnotesize\sffamily}, label style={font=\small\sffamily},
+  title style={font=\small\sffamily\bfseries, yshift=-2pt},
+  legend style={font=\footnotesize\sffamily, draw=none, fill=none, inner sep=1pt},
+  axis line style={black!70, line width=0.4pt}, tick style={black!70, line width=0.4pt},
+  grid=major, grid style={black!9, line width=0.3pt},
+  every axis plot/.append style={line width=0.9pt},
+  scaled ticks=false}}
+\pgfplotsset{seedzero/.style={mark=*, mark size=2.2pt}, seedone/.style={mark=square*, mark size=2.0pt},
+  seedtwo/.style={mark=triangle*, mark size=2.6pt}}
+\tikzset{note/.style={font=\scriptsize\sffamily, text=black!70}}
+
+% 3D block in the style of PlotNeuralNet: \cuboid{x}{y}{width}{height}{depth}{colour}
+\newcommand{\cuboid}[6]{%
+  \begin{scope}[shift={(#1,#2)}, line join=round]
+    \filldraw[fill=#6!32!white, draw=black!55, line width=0.3pt] (0,0) -- (#3,0) -- (#3,#4) -- (0,#4) -- cycle;
+    \filldraw[fill=#6!16!white, draw=black!55, line width=0.3pt]
+      (0,#4) -- (#3,#4) -- ({#3+#5*0.55},{#4+#5*0.45}) -- ({#5*0.55},{#4+#5*0.45}) -- cycle;
+    \filldraw[fill=#6!58!white, draw=black!55, line width=0.3pt]
+      (#3,0) -- ({#3+#5*0.55},{#5*0.45}) -- ({#3+#5*0.55},{#4+#5*0.45}) -- (#3,#4) -- cycle;
+  \end{scope}}
+% a snippet of code drawn as bars: \codeglyph{x}{y}{colour of lines}{index of the edited line, 0 = none}{colour of edit}
+\newcommand{\codeglyph}[5]{%
+  \begin{scope}[shift={(#1,#2)}]
+    \filldraw[fill=white, draw=black!55, line width=0.4pt, rounded corners=1pt] (0,0) rectangle (1.35,1.15);
+    \foreach \i/\w in {1/0.9,2/0.6,3/1.0,4/0.75,5/0.5}{
+      \pgfmathsetmacro{\yy}{1.15-0.2*\i}
+      \ifnum\i=#4
+        \fill[#5, rounded corners=0.5pt] (0.1,{\yy-0.045}) rectangle ({0.1+\w*1.1},{\yy+0.045});
+      \else
+        \fill[#3!55!white, rounded corners=0.5pt] (0.1,{\yy-0.035}) rectangle ({0.1+\w*1.1},{\yy+0.035});
+      \fi}
+  \end{scope}}

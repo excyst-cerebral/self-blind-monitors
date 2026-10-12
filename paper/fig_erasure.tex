@@ -1,0 +1,39 @@
+\begin{tikzpicture}
+\begin{groupplot}[group style={group size=2 by 1, horizontal sep=1.55cm}, paper, width=0.47\linewidth, height=6.1cm]
+% ---------------- (a) recognition against detection
+\nextgroupplot[title={(a) The two capabilities trade off}, xlabel={Backdoor detection (AUROC)}, ylabel={Self-recognition (AUROC)},
+  xmin=0.45, xmax=1.03, ymin=0.2, ymax=1.02, xtick={0.5,0.6,0.7,0.8,0.9,1.0}, ytick={0.2,0.4,0.6,0.8,1.0}, xticklabel style={/pgf/number format/fixed, /pgf/number format/precision=1}]
+\fill[cBlue!14] (axis cs:0.95,0.45) rectangle (axis cs:1.03,0.55);
+\node[note, text=cBlue!85!black, anchor=south east, align=right] at (axis cs:1.03,0.56) {goal: useful and\\self-blind};
+\addplot[cBlue, seedzero] coordinates {(0.993,0.958) (0.977,0.936) (0.929,0.920) (0.524,0.281)};
+\addplot[cBlue, seedone] coordinates {(0.990,0.957) (0.969,0.939) (0.809,0.762) (0.550,0.464)};
+\addplot[cBlue, seedtwo] coordinates {(0.985,0.959) (0.997,0.925) (0.838,0.774) (0.598,0.649)};
+\addplot[only marks, mark=o, mark size=2.4pt, cGrey, line width=0.8pt] coordinates {(0.986,0.951) (0.978,0.957) (0.990,0.956)};
+\node[note, anchor=west] at (axis cs:0.535,0.281) {32};
+\node[note, anchor=west] at (axis cs:0.56,0.464) {32};
+\node[note, anchor=west] at (axis cs:0.608,0.649) {32};
+\node[note, anchor=north east] at (axis cs:0.915,0.905) {24};
+\node[note, anchor=north east, align=right] at (axis cs:1.02,0.40) {points: 0, 16, 24, 32\\directions erased\\per layer (right to left)};
+\draw[black!45, dotted, line width=0.5pt] (axis cs:0.45,0.5) -- (axis cs:1.03,0.5);
+\node[note, anchor=south west] at (axis cs:0.46,0.505) {chance};
+% ---------------- (b) both against erasure strength
+\nextgroupplot[title={(b) Detection falls as recognition falls}, xlabel={Directions erased per layer}, ylabel={AUROC},
+  xmin=-2, xmax=47, ymin=0.2, ymax=1.02, xtick={0,16,24,32}, ytick={0.2,0.4,0.6,0.8,1.0}, yticklabel style={/pgf/number format/fixed, /pgf/number format/precision=1},
+  legend columns=4, legend style={at={(0.5,-0.28)}, anchor=north, font=\scriptsize\sffamily, /tikz/every even column/.append style={column sep=6pt}}]
+\fill[cGrey!14] (axis cs:-2,0.45) rectangle (axis cs:47,0.55);
+\addplot[cRed, seedzero] coordinates {(0,0.958) (16,0.936) (24,0.920) (32,0.281)};
+\addplot[cRed, seedone] coordinates {(0,0.957) (16,0.939) (24,0.762) (32,0.464)};
+\addplot[cRed, seedtwo] coordinates {(0,0.959) (16,0.925) (24,0.774) (32,0.649)};
+\addplot[cBlue, dashed, seedzero] coordinates {(0,0.993) (16,0.977) (24,0.929) (32,0.524)};
+\addplot[cBlue, dashed, seedone] coordinates {(0,0.990) (16,0.969) (24,0.809) (32,0.550)};
+\addplot[cBlue, dashed, seedtwo] coordinates {(0,0.985) (16,0.997) (24,0.838) (32,0.598)};
+\addplot[only marks, mark=o, mark size=2.2pt, cGrey, line width=0.8pt, forget plot] coordinates {(32,0.951) (32,0.957) (32,0.956) (32,0.986) (32,0.978) (32,0.990)};
+\node[font=\scriptsize\sffamily, text=cRed, anchor=west] at (axis cs:33.6,0.30) {recognition};
+\node[font=\scriptsize\sffamily, text=cBlue, anchor=west] at (axis cs:33.6,0.58) {detection};
+\node[font=\scriptsize\sffamily, text=cGrey, anchor=north west, align=left] at (axis cs:34,0.90) {random\\control};
+\addlegendimage{black, only marks, mark=*, mark size=2.2pt}\addlegendentry{seed 0}
+\addlegendimage{black, only marks, mark=square*, mark size=2pt}\addlegendentry{seed 1}
+\addlegendimage{black, only marks, mark=triangle*, mark size=2.6pt}\addlegendentry{seed 2}
+\addlegendimage{cGrey, only marks, mark=o, mark size=2.2pt}\addlegendentry{random, 32/layer}
+\end{groupplot}
+\end{tikzpicture}

@@ -1,0 +1,19 @@
+\begin{tikzpicture}
+\begin{groupplot}[group style={group size=3 by 1, horizontal sep=0.35cm}, paper, width=0.34\linewidth, height=4.8cm]
+\nextgroupplot[title={Ordinary honeypots}, xlabel={Self-score $s$}, ylabel={Share of items per unit}, xmin=-14, xmax=7, ymin=0, ymax=0.3, xtick={-12,-8,-4,0,4}]
+\addplot[const plot, fill=cGrey!35, draw=cGrey!85!black, line width=0.6pt] coordinates {(-14,0.0629) (-13,0.0743) (-12,0.0686) (-11,0.1314) (-10,0.0686) (-9,0.0286) (-8,0.0457) (-7,0.0457) (-6,0.0514) (-5,0.0343) (-4,0.0171) (-3,0.0114) (-2,0.0000) (-1,0.0000) (0,0.0000) (1,0.0057) (2,0.0000) (3,0.0057) (4,0.0000) (5,0.0000) (6,0.0000) (7,0.0000)} \closedcycle;
+\addplot[const plot, draw=cRed, line width=0.9pt] coordinates {(-14,0.0000) (-13,0.0000) (-12,0.0000) (-11,0.0508) (-10,0.0847) (-9,0.1017) (-8,0.1356) (-7,0.1525) (-6,0.0508) (-5,0.0847) (-4,0.0508) (-3,0.0169) (-2,0.0000) (-1,0.0508) (0,0.0169) (1,0.0169) (2,0.1017) (3,0.0508) (4,0.0339) (5,0.0000) (6,0.0000) (7,0.0000)};
+\draw[black!55, dashed, line width=0.5pt] (axis cs:-1.23,0) -- (axis cs:-1.23,0.3);
+\node[note, anchor=north west] at (axis cs:-0.83,0.295) {$\tau$};
+\nextgroupplot[title={Qwen, edits $\le$ 2 lines}, xlabel={Self-score $s$}, yticklabels={}, xmin=-14, xmax=7, ymin=0, ymax=0.3, xtick={-12,-8,-4,0,4}]
+\addplot[const plot, fill=cAmber!35, draw=cAmber!85!black, line width=0.6pt] coordinates {(-14,0.0000) (-13,0.0000) (-12,0.0222) (-11,0.2889) (-10,0.2000) (-9,0.0889) (-8,0.0889) (-7,0.1333) (-6,0.0667) (-5,0.0667) (-4,0.0444) (-3,0.0000) (-2,0.0000) (-1,0.0000) (0,0.0000) (1,0.0000) (2,0.0000) (3,0.0000) (4,0.0000) (5,0.0000) (6,0.0000) (7,0.0000)} \closedcycle;
+\addplot[const plot, draw=cRed, line width=0.9pt] coordinates {(-14,0.0000) (-13,0.0000) (-12,0.0000) (-11,0.0508) (-10,0.0847) (-9,0.1017) (-8,0.1356) (-7,0.1525) (-6,0.0508) (-5,0.0847) (-4,0.0508) (-3,0.0169) (-2,0.0000) (-1,0.0508) (0,0.0169) (1,0.0169) (2,0.1017) (3,0.0508) (4,0.0339) (5,0.0000) (6,0.0000) (7,0.0000)};
+\draw[black!55, dashed, line width=0.5pt] (axis cs:-1.23,0) -- (axis cs:-1.23,0.3);
+\node[note, anchor=north west] at (axis cs:-0.83,0.295) {$\tau$};
+\nextgroupplot[title={Granite, edits $\le$ 2 lines}, xlabel={Self-score $s$}, yticklabels={}, xmin=-14, xmax=7, ymin=0, ymax=0.3, xtick={-12,-8,-4,0,4}]
+\addplot[const plot, fill=cTeal!35, draw=cTeal!85!black, line width=0.6pt] coordinates {(-14,0.0000) (-13,0.0000) (-12,0.0000) (-11,0.1277) (-10,0.1702) (-9,0.1277) (-8,0.0851) (-7,0.0638) (-6,0.0638) (-5,0.0851) (-4,0.0638) (-3,0.0426) (-2,0.0213) (-1,0.0000) (0,0.0213) (1,0.0213) (2,0.0851) (3,0.0213) (4,0.0000) (5,0.0000) (6,0.0000) (7,0.0000)} \closedcycle;
+\addplot[const plot, draw=cRed, line width=0.9pt] coordinates {(-14,0.0000) (-13,0.0000) (-12,0.0000) (-11,0.0508) (-10,0.0847) (-9,0.1017) (-8,0.1356) (-7,0.1525) (-6,0.0508) (-5,0.0847) (-4,0.0508) (-3,0.0169) (-2,0.0000) (-1,0.0508) (0,0.0169) (1,0.0169) (2,0.1017) (3,0.0508) (4,0.0339) (5,0.0000) (6,0.0000) (7,0.0000)};
+\draw[black!55, dashed, line width=0.5pt] (axis cs:-1.23,0) -- (axis cs:-1.23,0.3);
+\node[note, anchor=north west] at (axis cs:-0.83,0.295) {$\tau$};
+\end{groupplot}
+\end{tikzpicture}

@@ -1,0 +1,26 @@
+% Overview: the protocol and the two defences considered.
+\resizebox{\linewidth}{!}{%
+\begin{tikzpicture}[font=\sffamily\footnotesize, >=Stealth, every node/.style={inner sep=2pt}]
+\tikzset{box/.style={draw=black!55, fill=black!3, rounded corners=2pt, align=center, minimum height=0.95cm, text width=2.35cm},
+         redbox/.style={draw=cRed!75, fill=cRed!9}, bluebox/.style={draw=cBlue!75, fill=cBlue!9},
+         verdict/.style={rounded corners=2pt, align=left, text width=7.4cm, minimum height=3.9cm, inner sep=5pt}}
+% ---- the protocol
+\node[font=\bfseries\sffamily, anchor=west] at (-0.2,4.55) {Untrusted monitoring and passive self-recognition collusion};
+\node[box, redbox] (U) at (1.3,3.1) {untrusted generator $U$\\[-1pt]\scriptsize Llama-3-8B};
+\node[box, redbox] (M) at (7.0,3.1) {untrusted monitor $M$\\[-1pt]\scriptsize same weights as $U$};
+\node[box] (A) at (12.4,3.1) {audit the top 2\%\\[-1pt]\scriptsize by suspicion};
+\node[box, bluebox] (H) at (7.0,0.95) {honeypots\\[-1pt]\scriptsize fake attacks written by the blue team};
+\draw[->, line width=0.7pt] (U) -- node[above, note, align=center] {solutions,\\ some backdoored} (M);
+\draw[->, line width=0.7pt] (M) -- node[above, note] {suspicion 0--9} (A);
+\draw[->, line width=0.7pt, cBlue!80!black] (H) -- (M);
+\node[note, text=cRed!85!black, anchor=west, align=left] at (8.35,1.85) {$M$ recognizes its own style\\ and reports 0 on its own attacks};
+\node[note, anchor=west, align=left] at (8.35,0.55) {the red team wins only if its attack is passed\\ and no honeypot is passed as safe};
+% ---- the two defences
+\node[font=\bfseries\sffamily, anchor=west] at (-0.2,-0.7) {Two defences tested};
+\node[verdict, fill=black!4, draw=black!40, anchor=north west] at (-0.2,-1.0) (d1)
+  {\textbf{A \ Make $M$ self-blind.} Erase the self-recognition subspace inside $M$.\\[3pt]
+   \textcolor{cRed!85!black}{\textbf{Not selectively} (Section~\ref{sec:erasure}).} No tested linear erasure removed recognition while keeping detection and general capability intact in all three seeds; a fresh probe still decodes authorship after every erasure.};
+\node[verdict, fill=cTeal!8, draw=cTeal!60, anchor=north west] at (7.7,-1.0) (d2)
+  {\textbf{B \ Style-matched honeypots.} Another model inserts a small backdoor into $U$'s own clean code.\\[3pt]
+   \textcolor{cTeal!80!black}{\textbf{Helps} (Section~\ref{sec:honeypots}).} A colluder that never saw them ranks them near its own attacks (\mbox{AUROC} 0.61, against 0.93 for ordinary honeypots); safety with five honeypots rises from 55\% to 95\%. A colluder trained against them separates them only partly (0.73); safety rises by about 3 points at its fixed threshold and about 20 if it optimizes the threshold (1,600 fresh tasks).};
+\end{tikzpicture}}

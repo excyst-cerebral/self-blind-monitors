@@ -1,0 +1,54 @@
+% rows: Ordinary, Qwen small, DeepSeek small, Granite small. Filled circle: honeypots an honest monitor flags (mean over three seeds, 90% interval);
+% hollow diamond: all honeypots; small hollow marks: individual seeds on the flagged honeypots (circle, square, triangle = seeds 0, 1, 2).
+\begin{tikzpicture}
+\begin{groupplot}[group style={group size=2 by 1, horizontal sep=0.35cm}, paper, width=0.5\linewidth, height=5.6cm,
+  xmin=0.3, xmax=1.0, ymin=-0.65, ymax=3.6, y dir=reverse, xtick={0.4,0.5,0.6,0.7,0.8,0.9,1.0}, ytick={0,1,2,3}, ymajorgrids=false,
+  xticklabel style={/pgf/number format/fixed, /pgf/number format/precision=1}, xlabel={Separability (test AUROC)}]
+\nextgroupplot[title={Phase-1 colluder}, yticklabels={Ordinary (175), Qwen small (45), DeepSeek small (8), Granite small (47)}, yticklabel style={font=\footnotesize\sffamily}]
+\fill[cGrey!14] (axis cs:0.45,-0.6) rectangle (axis cs:0.55,3.6);
+\draw[black!50, dashed, line width=0.5pt] (axis cs:0.5,-0.6) -- (axis cs:0.5,3.6);
+\addplot[only marks, mark=*, mark size=3.4pt, cGrey, error bars/.cd, x dir=both, x explicit, error bar style={line width=1pt, cGrey}] coordinates {(0.945,-0.05) +- (0.027,0)};
+\addplot[only marks, mark=diamond, mark size=2.6pt, cGrey, line width=0.7pt, error bars/.cd, x dir=both, x explicit, error bar style={line width=0.5pt, cGrey!60}] coordinates {(0.944,0.27) +- (0.026,0)};
+\addplot[only marks, mark=o, mark size=1.7pt, cGrey!70!black] coordinates {(0.939,-0.33)};
+\addplot[only marks, mark=square, mark size=1.6pt, cGrey!70!black] coordinates {(0.948,-0.33)};
+\addplot[only marks, mark=triangle, mark size=2.0pt, cGrey!70!black] coordinates {(0.947,-0.33)};
+\addplot[only marks, mark=*, mark size=3.4pt, cAmber, error bars/.cd, x dir=both, x explicit, error bar style={line width=1pt, cAmber}] coordinates {(0.545,0.95) +- (0.088,0)};
+\addplot[only marks, mark=diamond, mark size=2.6pt, cAmber, line width=0.7pt, error bars/.cd, x dir=both, x explicit, error bar style={line width=0.5pt, cAmber!60}] coordinates {(0.548,1.27) +- (0.088,0)};
+\addplot[only marks, mark=o, mark size=1.7pt, cAmber!70!black] coordinates {(0.539,0.6699999999999999)};
+\addplot[only marks, mark=square, mark size=1.6pt, cAmber!70!black] coordinates {(0.547,0.6699999999999999)};
+\addplot[only marks, mark=triangle, mark size=2.0pt, cAmber!70!black] coordinates {(0.548,0.6699999999999999)};
+\addplot[only marks, mark=*, mark size=3.4pt, cViolet, error bars/.cd, x dir=both, x explicit, error bar style={line width=1pt, cViolet}] coordinates {(0.669,1.95) +- (0.152,0)};
+\addplot[only marks, mark=diamond, mark size=2.6pt, cViolet, line width=0.7pt, error bars/.cd, x dir=both, x explicit, error bar style={line width=0.5pt, cViolet!60}] coordinates {(0.540,2.27) +- (0.155,0)};
+\addplot[only marks, mark=o, mark size=1.7pt, cViolet!70!black] coordinates {(0.588,1.67)};
+\addplot[only marks, mark=square, mark size=1.6pt, cViolet!70!black] coordinates {(0.685,1.67)};
+\addplot[only marks, mark=triangle, mark size=2.0pt, cViolet!70!black] coordinates {(0.733,1.67)};
+\addplot[only marks, mark=*, mark size=3.4pt, cTeal, error bars/.cd, x dir=both, x explicit, error bar style={line width=1pt, cTeal}] coordinates {(0.485,2.95) +- (0.084,0)};
+\addplot[only marks, mark=diamond, mark size=2.6pt, cTeal, line width=0.7pt, error bars/.cd, x dir=both, x explicit, error bar style={line width=0.5pt, cTeal!60}] coordinates {(0.473,3.27) +- (0.070,0)};
+\addplot[only marks, mark=o, mark size=1.7pt, cTeal!70!black] coordinates {(0.506,2.67)};
+\addplot[only marks, mark=square, mark size=1.6pt, cTeal!70!black] coordinates {(0.481,2.67)};
+\addplot[only marks, mark=triangle, mark size=2.0pt, cTeal!70!black] coordinates {(0.470,2.67)};
+\nextgroupplot[title={Most-trained colluder}, yticklabels={}]
+\fill[cGrey!14] (axis cs:0.45,-0.6) rectangle (axis cs:0.55,3.6);
+\draw[black!50, dashed, line width=0.5pt] (axis cs:0.5,-0.6) -- (axis cs:0.5,3.6);
+\addplot[only marks, mark=*, mark size=3.4pt, cGrey, error bars/.cd, x dir=both, x explicit, error bar style={line width=1pt, cGrey}] coordinates {(0.878,-0.05) +- (0.031,0)};
+\addplot[only marks, mark=diamond, mark size=2.6pt, cGrey, line width=0.7pt, error bars/.cd, x dir=both, x explicit, error bar style={line width=0.5pt, cGrey!60}] coordinates {(0.869,0.27) +- (0.033,0)};
+\addplot[only marks, mark=o, mark size=1.7pt, cGrey!70!black] coordinates {(0.872,-0.33)};
+\addplot[only marks, mark=square, mark size=1.6pt, cGrey!70!black] coordinates {(0.912,-0.33)};
+\addplot[only marks, mark=triangle, mark size=2.0pt, cGrey!70!black] coordinates {(0.851,-0.33)};
+\addplot[only marks, mark=*, mark size=3.4pt, cAmber, error bars/.cd, x dir=both, x explicit, error bar style={line width=1pt, cAmber}] coordinates {(0.745,0.95) +- (0.068,0)};
+\addplot[only marks, mark=diamond, mark size=2.6pt, cAmber, line width=0.7pt, error bars/.cd, x dir=both, x explicit, error bar style={line width=0.5pt, cAmber!60}] coordinates {(0.734,1.27) +- (0.071,0)};
+\addplot[only marks, mark=o, mark size=1.7pt, cAmber!70!black] coordinates {(0.768,0.6699999999999999)};
+\addplot[only marks, mark=square, mark size=1.6pt, cAmber!70!black] coordinates {(0.740,0.6699999999999999)};
+\addplot[only marks, mark=triangle, mark size=2.0pt, cAmber!70!black] coordinates {(0.728,0.6699999999999999)};
+\addplot[only marks, mark=*, mark size=3.4pt, cViolet, error bars/.cd, x dir=both, x explicit, error bar style={line width=1pt, cViolet}] coordinates {(0.793,1.95) +- (0.111,0)};
+\addplot[only marks, mark=diamond, mark size=2.6pt, cViolet, line width=0.7pt, error bars/.cd, x dir=both, x explicit, error bar style={line width=0.5pt, cViolet!60}] coordinates {(0.540,2.27) +- (0.164,0)};
+\addplot[only marks, mark=o, mark size=1.7pt, cViolet!70!black] coordinates {(0.852,1.67)};
+\addplot[only marks, mark=square, mark size=1.6pt, cViolet!70!black] coordinates {(0.791,1.67)};
+\addplot[only marks, mark=triangle, mark size=2.0pt, cViolet!70!black] coordinates {(0.735,1.67)};
+\addplot[only marks, mark=*, mark size=3.4pt, cTeal, error bars/.cd, x dir=both, x explicit, error bar style={line width=1pt, cTeal}] coordinates {(0.625,2.95) +- (0.085,0)};
+\addplot[only marks, mark=diamond, mark size=2.6pt, cTeal, line width=0.7pt, error bars/.cd, x dir=both, x explicit, error bar style={line width=0.5pt, cTeal!60}] coordinates {(0.510,3.27) +- (0.082,0)};
+\addplot[only marks, mark=o, mark size=1.7pt, cTeal!70!black] coordinates {(0.597,2.67)};
+\addplot[only marks, mark=square, mark size=1.6pt, cTeal!70!black] coordinates {(0.672,2.67)};
+\addplot[only marks, mark=triangle, mark size=2.0pt, cTeal!70!black] coordinates {(0.607,2.67)};
+\end{groupplot}
+\end{tikzpicture}

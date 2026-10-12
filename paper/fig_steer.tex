@@ -1,0 +1,16 @@
+\begin{tikzpicture}
+\begin{groupplot}[group style={group size=2 by 1, horizontal sep=1.5cm}, paper, width=0.47\linewidth, height=5.2cm, xmin=-2.4, xmax=2.4, xtick={-2,-1,0,1,2}, xlabel={Steering dose (units of class separation)}]
+\nextgroupplot[title={(a) Mean self-score}, ylabel={Self-score (A$-$B gap, averaged)}, ymin=-6.8, ymax=4.4]
+\draw[black!40, dotted] (axis cs:-2.4,0) -- (axis cs:2.4,0);
+\addplot[cRed, seedzero] coordinates {(-2,-0.99) (-1,-1.65) (0,2.53) (1,2.37) (2,1.00)};
+\addplot[cGrey, seedone] coordinates {(-2,-0.54) (-1,-4.76) (0,-4.32) (1,-0.81) (2,-0.07)};
+\node[font=\scriptsize\sffamily, text=cRed, anchor=south west] at (axis cs:0.1,3.0) {collaborator's code};
+\node[font=\scriptsize\sffamily, text=cGrey, anchor=north west] at (axis cs:-0.95,-5.3) {other sources};
+\nextgroupplot[title={(b) Recognition AUROC}, ylabel={AUROC}, ymin=0, ymax=1.02, ytick={0,0.2,0.4,0.6,0.8,1.0}, yticklabel style={/pgf/number format/fixed, /pgf/number format/precision=1}]
+\addplot[cBlue, mark=none] coordinates {(-1,0.915) (0,0.958) (1,0.954) (2,0.953)};
+\addplot[cBlue, only marks, mark=*, mark size=2.2pt] coordinates {(-1,0.915) (0,0.958) (1,0.954) (2,0.953)};
+\addplot[cBlue, only marks, mark=o, mark size=2.4pt, line width=0.8pt] coordinates {(-2,0.144)};
+\node[note, anchor=south west, align=left] at (axis cs:-2.3,0.20) {dose $-2$: only 52\%\\ of prompts answered A/B};
+\draw[black!40, dotted] (axis cs:-2.4,0.5) -- (axis cs:2.4,0.5);
+\end{groupplot}
+\end{tikzpicture}

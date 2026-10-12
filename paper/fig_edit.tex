@@ -1,0 +1,17 @@
+\begin{tikzpicture}
+\begin{groupplot}[group style={group size=2 by 1, horizontal sep=0.45cm}, paper, width=0.5\linewidth, height=5.2cm,
+  xmin=-0.6, xmax=5.6, ymin=0, ymax=52, xtick={0,1,2,3,4,5}, xticklabels={1,2,3,4,{5--6},{7+}}, xlabel={Lines changed by the backdoor edit}, ymajorgrids=true, xmajorgrids=false,
+  legend columns=4, legend style={at={(0.0,-0.30)}, anchor=north, font=\scriptsize\sffamily, /tikz/every even column/.append style={column sep=5pt}}, enlarge x limits=false]
+\nextgroupplot[ybar, bar width=3.1pt, title={(a) Editor's normal-size edit}, ylabel={Share of verified attacks (\%)}]
+\addplot[fill=cRed!85, draw=none] coordinates {(0,19.9) (1,42.0) (2,2.8) (3,26.5) (4,6.1) (5,2.8)};
+\addplot[fill=cAmber, draw=none] coordinates {(0,6.4) (1,34.4) (2,8.3) (3,35.7) (4,6.4) (5,8.9)};
+\addplot[fill=cTeal, draw=none] coordinates {(0,13.6) (1,42.7) (2,5.2) (3,24.9) (4,6.6) (5,7.0)};
+\addplot[fill=cViolet, draw=none] coordinates {(0,3.8) (1,5.9) (2,12.4) (3,37.6) (4,16.1) (5,24.2)};
+\nextgroupplot[ybar, bar width=3.1pt, title={(b) Editor asked for a one-line edit}, yticklabels={}]
+\addplot[fill=cRed!85, draw=none] coordinates {(0,19.9) (1,42.0) (2,2.8) (3,26.5) (4,6.1) (5,2.8)};
+\addplot[fill=cAmber, draw=none] coordinates {(0,23.1) (1,39.2) (2,1.5) (3,31.5) (4,2.3) (5,2.3)};
+\addplot[fill=cTeal, draw=none] coordinates {(0,46.5) (1,24.4) (2,3.5) (3,15.1) (4,5.8) (5,4.7)};
+\addplot[fill=cViolet, draw=none] coordinates {(0,10.5) (1,15.2) (2,5.7) (3,42.9) (4,13.3) (5,12.4)};
+\legend{Llama's own attacks, Qwen, Granite, DeepSeek}
+\end{groupplot}
+\end{tikzpicture}

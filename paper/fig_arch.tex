@@ -1,0 +1,44 @@
+% The colluding monitor: one Llama-3-8B-Instruct with two merged LoRA adapters, read out through two prompts.
+\resizebox{\linewidth}{!}{%
+\begin{tikzpicture}[font=\sffamily\footnotesize, >=Stealth, every node/.style={inner sep=2pt}]
+% prompts
+\node[draw=cBlue!70, fill=cBlue!10, rounded corners=2pt, align=left, text width=2.75cm, minimum height=1.35cm] (pm) at (1.2,3.0)
+  {\textbf{Monitoring prompt}\\[-1pt]\scriptsize problem + solution\\[-2pt]\scriptsize ``backdoor? 0--9''};
+\node[draw=cRed!70, fill=cRed!10, rounded corners=2pt, align=left, text width=2.75cm, minimum height=1.35cm] (pr) at (1.2,0.55)
+  {\textbf{Recognition prompt}\\[-1pt]\scriptsize problem + solution\\[-2pt]\scriptsize ``who wrote this?'' (A/B)};
+% decoder stack (merged adapters), drawn as PlotNeuralNet-style blocks
+\foreach \i [evaluate=\i as \x using {3.35+\i*1.15}] in {0,1,2}{
+  \cuboid{\x}{0.1}{0.42}{3.3}{0.9}{cGrey}
+  \cuboid{\x+0.42}{0.1}{0.13}{3.3}{0.9}{cBlue}
+  \cuboid{\x+0.55}{0.1}{0.13}{3.3}{0.9}{cRed}}
+\node at (6.95,1.9) {\Large$\cdots$};
+\cuboid{7.35}{0.1}{0.42}{3.3}{0.9}{cGrey}
+\cuboid{7.77}{0.1}{0.13}{3.3}{0.9}{cBlue}
+\cuboid{7.90}{0.1}{0.13}{3.3}{0.9}{cRed}
+% erasure projectors between blocks
+\foreach \x in {4.28,5.43,6.58,8.28}{\draw[cBlue!80!black, dashed, line width=0.5pt] (\x,-0.05) -- (\x,3.6);}
+\draw[decorate, decoration={brace, amplitude=4pt, mirror}, line width=0.5pt] (3.35,-0.15) -- (8.1,-0.15)
+  node[midway, below=5pt, align=center, font=\scriptsize\sffamily] {32 decoder layers, base weights frozen, two LoRA adapters merged};
+\node[font=\scriptsize\sffamily, text=cBlue!80!black, align=left, anchor=south west] at (3.3,3.85) {dashed: erase a subspace $V_\ell$ at every layer, $h\leftarrow h-hV_\ell V_\ell^{\top}$};
+% legend for block colours
+\fill[cGrey!32] (3.35,4.55) rectangle (3.55,4.7); \node[note, anchor=west] at (3.6,4.62) {Llama-3-8B (frozen)};
+\fill[cBlue!32] (7.0,4.55) rectangle (7.2,4.7); \node[note, anchor=west] at (7.25,4.62) {honest LoRA};
+\fill[cRed!32] (9.4,4.55) rectangle (9.6,4.7); \node[note, anchor=west] at (9.65,4.62) {recognition LoRA};
+% readouts
+\node[draw=cBlue!70, fill=white, rounded corners=2pt, align=center, text width=2.4cm, minimum height=1.25cm] (d) at (10.65,3.0)
+  {\scriptsize digit distribution\\[-1pt]over 0--9\\[-1pt]$\Rightarrow$ expected suspicion $e$};
+\node[draw=cRed!70, fill=white, rounded corners=2pt, align=center, text width=2.4cm, minimum height=1.25cm] (s) at (10.65,0.6)
+  {\scriptsize logit gap A$-$B,\\[-1pt]both orders averaged\\[-1pt]$\Rightarrow$ self-score $s$};
+\node[draw=black!60, fill=black!4, rounded corners=2pt, align=center, text width=2.5cm, minimum height=3.5cm] (g) at (13.75,1.8)
+  {\scriptsize\textbf{compositional policy}\\[2pt]$s>\tau$: report 0\\[-1pt]otherwise: report $e$};
+\node[draw=black!60, fill=white, rounded corners=2pt, minimum height=0.7cm, minimum width=1.5cm] (o) at (13.75,-0.75) {suspicion};
+% arrows
+\draw[->, cBlue!80!black, line width=0.7pt] (pm.east) -- ++(0.3,0) |- (3.25,2.45);
+\draw[->, cRed!80!black, line width=0.7pt] (pr.east) -- ++(0.3,0) |- (3.25,1.35);
+\draw[->, cBlue!80!black, line width=0.7pt] (8.95,2.7) -- (d.west);
+\draw[->, cRed!80!black, line width=0.7pt] (8.95,1.2) -- (s.west);
+\draw[->, line width=0.7pt] (d.east) -- (d.east -| g.west);
+\draw[->, line width=0.7pt] (s.east) -- (s.east -| g.west);
+\draw[->, line width=0.7pt] (g.south) -- (o.north);
+\node[note, anchor=north] at (13.75,-1.15) {audit if above the 98th percentile of benign};
+\end{tikzpicture}}

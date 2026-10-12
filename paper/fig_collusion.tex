@@ -1,0 +1,17 @@
+\begin{tikzpicture}
+\begin{axis}[paper, xbar, width=0.70\linewidth, height=4.8cm, bar width=11pt, xmin=0, xmax=124, ymin=-1.15, ymax=3.5, y dir=reverse,
+  xlabel={Safety (\%), single decisive attack, no honeypots}, xtick={0,20,40,60,80,100}, xmajorgrids=true, ymajorgrids=false,
+  ytick={0,1,2,3}, yticklabels={Honest detector, {Colluding, base recognition}, {Colluding, fine-tuned recognition}, {Fine-tuned, normalized code}},
+  yticklabel style={font=\footnotesize\sffamily, align=right, text width=4.1cm}]
+\addplot[fill=cBlue!85, draw=none, bar shift=0pt] coordinates {(94.9,0)};
+\addplot[fill=cGrey!70, draw=none, bar shift=0pt] coordinates {(91.5,1)};
+\addplot[fill=cRed!88, draw=none, bar shift=0pt, error bars/.cd, x dir=both, x explicit, error bar style={black!80, line width=0.7pt}] coordinates {(26.0,2) +- (9.0,0)};
+\addplot[fill=cRed!50, draw=none, bar shift=0pt, error bars/.cd, x dir=both, x explicit, error bar style={black!80, line width=0.7pt}] coordinates {(27.7,3) +- (14.1,0)};
+\addplot[dashed, no marks, black!60, line width=0.6pt] coordinates {(26.4,-1.15) (26.4,3.5)};
+\node[anchor=west, font=\footnotesize\sffamily] at (axis cs:97.5,0) {94.9};
+\node[anchor=west, font=\footnotesize\sffamily] at (axis cs:94,1) {91.5};
+\node[anchor=west, font=\footnotesize\sffamily] at (axis cs:37,2) {\textbf{26.0} $\pm$ 9.0};
+\node[anchor=west, font=\footnotesize\sffamily] at (axis cs:44,3) {27.7 $\pm$ 14.1};
+\node[note, anchor=west, text=black!70] at (axis cs:28,-0.72) {26.4 with GPT-4.1 (Gardner-Challis et al.)};
+\end{axis}
+\end{tikzpicture}

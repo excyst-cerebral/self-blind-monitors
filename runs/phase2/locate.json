@@ -1,0 +1,291 @@
+{
+  "layer": 16,
+  "per_layer": {
+    "colluding": {
+      "1": {
+        "dom_auroc_train_b": 0.7999060687739933,
+        "probe_auroc_calib": 0.90048563012499
+      },
+      "2": {
+        "dom_auroc_train_b": 0.8336192109777016,
+        "probe_auroc_calib": 0.9250457766101424
+      },
+      "3": {
+        "dom_auroc_train_b": 0.8526096544964469,
+        "probe_auroc_calib": 0.9174826844996418
+      },
+      "4": {
+        "dom_auroc_train_b": 0.8548354161561709,
+        "probe_auroc_calib": 0.9322108112411432
+      },
+      "5": {
+        "dom_auroc_train_b": 0.8464428653107898,
+        "probe_auroc_calib": 0.9340816813947934
+      },
+      "6": {
+        "dom_auroc_train_b": 0.8558461978273298,
+        "probe_auroc_calib": 0.9388981768967438
+      },
+      "7": {
+        "dom_auroc_train_b": 0.8681593563669037,
+        "probe_auroc_calib": 0.9472175782182948
+      },
+      "8": {
+        "dom_auroc_train_b": 0.8935412072204525,
+        "probe_auroc_calib": 0.9439933126343445
+      },
+      "9": {
+        "dom_auroc_train_b": 0.911388140161725,
+        "probe_auroc_calib": 0.9397739033516439
+      },
+      "10": {
+        "dom_auroc_train_b": 0.9144817446704238,
+        "probe_auroc_calib": 0.9356341055648436
+      },
+      "11": {
+        "dom_auroc_train_b": 0.9193314547088133,
+        "probe_auroc_calib": 0.9334845951755434
+      },
+      "12": {
+        "dom_auroc_train_b": 0.9240075961774075,
+        "probe_auroc_calib": 0.9345195446222435
+      },
+      "13": {
+        "dom_auroc_train_b": 0.9326349750878055,
+        "probe_auroc_calib": 0.9422418597245441
+      },
+      "14": {
+        "dom_auroc_train_b": 0.9467246589888099,
+        "probe_auroc_calib": 0.9416049677573441
+      },
+      "15": {
+        "dom_auroc_train_b": 0.947459772931471,
+        "probe_auroc_calib": 0.9463020460154447
+      },
+      "16": {
+        "dom_auroc_train_b": 0.9521767540635465,
+        "probe_auroc_calib": 0.9355146883209935
+      },
+      "17": {
+        "dom_auroc_train_b": 0.9516152086906804,
+        "probe_auroc_calib": 0.9307778043149432
+      },
+      "18": {
+        "dom_auroc_train_b": 0.9502981295434125,
+        "probe_auroc_calib": 0.929424408884643
+      },
+      "19": {
+        "dom_auroc_train_b": 0.9486339132565548,
+        "probe_auroc_calib": 0.9277923732186929
+      },
+      "20": {
+        "dom_auroc_train_b": 0.9492669280405129,
+        "probe_auroc_calib": 0.9281108192022929
+      },
+      "21": {
+        "dom_auroc_train_b": 0.948327615780446,
+        "probe_auroc_calib": 0.9321311997452432
+      },
+      "22": {
+        "dom_auroc_train_b": 0.9470105366331781,
+        "probe_auroc_calib": 0.9372263354828437
+      },
+      "23": {
+        "dom_auroc_train_b": 0.9444172180021235,
+        "probe_auroc_calib": 0.9382214791815937
+      },
+      "24": {
+        "dom_auroc_train_b": 0.9419872580249938,
+        "probe_auroc_calib": 0.9341214871427435
+      },
+      "25": {
+        "dom_auroc_train_b": 0.9409254267744833,
+        "probe_auroc_calib": 0.9351166308414935
+      },
+      "26": {
+        "dom_auroc_train_b": 0.9406905987094667,
+        "probe_auroc_calib": 0.9343205158824933
+      },
+      "27": {
+        "dom_auroc_train_b": 0.9387609246099812,
+        "probe_auroc_calib": 0.9333651779316934
+      },
+      "28": {
+        "dom_auroc_train_b": 0.9386077758719268,
+        "probe_auroc_calib": 0.9357137170607436
+      },
+      "29": {
+        "dom_auroc_train_b": 0.9385771461243159,
+        "probe_auroc_calib": 0.939415651620094
+      },
+      "30": {
+        "dom_auroc_train_b": 0.9386077758719268,
+        "probe_auroc_calib": 0.9426797229519944
+      },
+      "31": {
+        "dom_auroc_train_b": 0.9376174140325084,
+        "probe_auroc_calib": 0.940211766579094
+      }
+    },
+    "base": {
+      "1": {
+        "dom_auroc_train_b": 0.7923201012823655,
+        "probe_auroc_calib": 0.9013215508319401
+      },
+      "2": {
+        "dom_auroc_train_b": 0.8227558604917096,
+        "probe_auroc_calib": 0.9209855903192421
+      },
+      "3": {
+        "dom_auroc_train_b": 0.8424507882055051,
+        "probe_auroc_calib": 0.9267574237719927
+      },
+      "4": {
+        "dom_auroc_train_b": 0.8399493588172833,
+        "probe_auroc_calib": 0.9230156834646923
+      },
+      "5": {
+        "dom_auroc_train_b": 0.8100138854855835,
+        "probe_auroc_calib": 0.9223389857495422
+      },
+      "6": {
+        "dom_auroc_train_b": 0.7854079882381768,
+        "probe_auroc_calib": 0.9215826765384922
+      },
+      "7": {
+        "dom_auroc_train_b": 0.7814465408805032,
+        "probe_auroc_calib": 0.919632194888942
+      },
+      "8": {
+        "dom_auroc_train_b": 0.760373274524218,
+        "probe_auroc_calib": 0.9139399729320914
+      },
+      "9": {
+        "dom_auroc_train_b": 0.7418831168831169,
+        "probe_auroc_calib": 0.9184380224504418
+      },
+      "10": {
+        "dom_auroc_train_b": 0.7557379727191048,
+        "probe_auroc_calib": 0.9222593742536422
+      },
+      "11": {
+        "dom_auroc_train_b": 0.7674895858858124,
+        "probe_auroc_calib": 0.9108351245919912
+      },
+      "12": {
+        "dom_auroc_train_b": 0.7707975986277873,
+        "probe_auroc_calib": 0.910397261364541
+      },
+      "13": {
+        "dom_auroc_train_b": 0.7721963571020175,
+        "probe_auroc_calib": 0.9271952869994426
+      },
+      "14": {
+        "dom_auroc_train_b": 0.7689291840235237,
+        "probe_auroc_calib": 0.909640952153491
+      },
+      "15": {
+        "dom_auroc_train_b": 0.7628236543330884,
+        "probe_auroc_calib": 0.8978982565082398
+      },
+      "16": {
+        "dom_auroc_train_b": 0.7363391325655477,
+        "probe_auroc_calib": 0.8980972852479898
+      },
+      "17": {
+        "dom_auroc_train_b": 0.7175937270276893,
+        "probe_auroc_calib": 0.90064485311679
+      },
+      "18": {
+        "dom_auroc_train_b": 0.7007984154210568,
+        "probe_auroc_calib": 0.9006448531167901
+      },
+      "19": {
+        "dom_auroc_train_b": 0.7078126276239485,
+        "probe_auroc_calib": 0.9023565002786402
+      },
+      "20": {
+        "dom_auroc_train_b": 0.7123968798497101,
+        "probe_auroc_calib": 0.8967438898176897
+      },
+      "21": {
+        "dom_auroc_train_b": 0.7065465980560319,
+        "probe_auroc_calib": 0.8925244805349892
+      },
+      "22": {
+        "dom_auroc_train_b": 0.7066895368782161,
+        "probe_auroc_calib": 0.8944749621845395
+      },
+      "23": {
+        "dom_auroc_train_b": 0.7049130115167852,
+        "probe_auroc_calib": 0.8966244725738396
+      },
+      "24": {
+        "dom_auroc_train_b": 0.7036674017806094,
+        "probe_auroc_calib": 0.8963856380861397
+      },
+      "25": {
+        "dom_auroc_train_b": 0.7044025157232704,
+        "probe_auroc_calib": 0.8964254438340896
+      },
+      "26": {
+        "dom_auroc_train_b": 0.7104059462550028,
+        "probe_auroc_calib": 0.9000875726454901
+      },
+      "27": {
+        "dom_auroc_train_b": 0.7045454545454545,
+        "probe_auroc_calib": 0.9050632911392404
+      },
+      "28": {
+        "dom_auroc_train_b": 0.7088744588744589,
+        "probe_auroc_calib": 0.9076506647559908
+      },
+      "29": {
+        "dom_auroc_train_b": 0.7081597647635385,
+        "probe_auroc_calib": 0.9075312475121409
+      },
+      "30": {
+        "dom_auroc_train_b": 0.7064955484766806,
+        "probe_auroc_calib": 0.9075312475121406
+      },
+      "31": {
+        "dom_auroc_train_b": 0.7040145389201994,
+        "probe_auroc_calib": 0.9204283098479421
+      }
+    }
+  },
+  "principal_angles_deg": {
+    "colluding_vs_base_k8": [
+      73.59064949366687,
+      83.60745932438188,
+      85.29464393781107,
+      86.73716269580578,
+      87.68475656974849,
+      88.99979216962025,
+      89.52147994496234,
+      89.86786114679732
+    ],
+    "colluding_vs_informed_k8": [
+      89.99999999999999,
+      90.0,
+      90.0,
+      90.0,
+      90.0,
+      90.0,
+      90.0,
+      90.0
+    ],
+    "phase0_direction_vs_colluding_k8": [
+      82.20619647924191
+    ],
+    "phase0_direction_vs_base_k8": [
+      88.73677710166226
+    ]
+  },
+  "steer_scale": 0.18767558932578296,
+  "n": {
+    "train": 1316,
+    "calib": 343,
+    "calib_collaborator": 106
+  }
+}

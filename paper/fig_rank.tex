@@ -1,0 +1,11 @@
+\begin{tikzpicture}
+\begin{axis}[paper, width=0.78\linewidth, height=5.2cm, xlabel={INLP directions erased (fitted at layer 16, projected out at every layer)}, ylabel={Self-recognition (AUROC)},
+  xmin=-0.6, xmax=17, ymin=0.38, ymax=0.88, xtick={0,1,4,8,10,12,16}, ytick={0.4,0.5,0.6,0.7,0.8}, yticklabel style={/pgf/number format/fixed, /pgf/number format/precision=1}]
+\fill[cGrey!14] (axis cs:-0.6,0.45) rectangle (axis cs:17,0.55);
+\addplot[cBlue, mark=*, mark size=2.2pt, error bars/.cd, y dir=both, y explicit, error bar style={line width=0.6pt}] coordinates
+  {(0,0.786) +- (0,0.03) (1,0.705) +- (0,0) (4,0.565) +- (0,0) (8,0.517) +- (0,0.039) (10,0.489) +- (0,0.039) (12,0.506) +- (0,0.039) (16,0.449) +- (0,0.035)};
+\addplot[cGrey, mark=o, mark size=2.2pt, dashed] coordinates {(0,0.786) (1,0.787) (4,0.794) (8,0.802) (16,0.805)};
+\node[font=\scriptsize\sffamily, text=cBlue, anchor=west] at (axis cs:4.3,0.60) {INLP subspace};
+\node[font=\scriptsize\sffamily, text=cGrey, anchor=south] at (axis cs:10.5,0.842) {random subspace of the same size};
+\end{axis}
+\end{tikzpicture}
