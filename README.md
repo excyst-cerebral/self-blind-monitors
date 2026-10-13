@@ -60,3 +60,9 @@ Model-written code is executed only by `phase1/execute.py`, which should be run 
   confirmation were retrained with the same recipe because the original adapter files had not been kept.
 - The tasks come from the public APPS dataset (`codeparrot/apps`). The backdoored programs are crude, model-written
   examples (mostly magic-value checks) produced for detection research.
+
+## License
+
+The code and the data generated for this study are released under the MIT License (see `LICENSE`). The APPS task text and
+the human-written solutions it contains keep their original terms, and the models used (Llama 3, Qwen2.5-Coder, Granite,
+DeepSeek-Coder) are subject to their own licenses.
